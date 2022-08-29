@@ -1,11 +1,5 @@
-if (window.location.protocol == "https:") {
-  console.log("You are not connected with the correct protocol.");
-  console.log("Reloading the page to the correct protocol...");
-  window.location = document.URL.replace("https://", "http://");
-}
-
-if (window.location.protocol == "http:") {
-  console.log("You are connected with the correct protocol.");
+if (location.protocol !== "http:") {
+  location.replace(`http:${location.href.substring(location.protocol.length)}`);
 }
 let form = document.querySelector("form");
 let valueInput = document.getElementById("valueInput");
